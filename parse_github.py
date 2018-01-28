@@ -14,7 +14,6 @@ import base64
 import requests
 import redis
 
-
 DB = redis.StrictRedis(host='localhost', port=6379)
 
 AUTH = ('spetz911', os.environ['GITHUB_AUTH'])
@@ -26,6 +25,7 @@ REPOS = [
     ('google/guice', 'master'),
 ]
 
+
 def to_native_string(string, encoding='ascii'):
     if isinstance(string, str):
         out = string
@@ -34,8 +34,9 @@ def to_native_string(string, encoding='ascii'):
 
     return out
 
+
 def call_api(url):
-    "doscstr"
+    """doscstr"""
     username, password = AUTH
     authstr = 'Basic ' + to_native_string(
         base64.b64encode(b':'.join((username, password))).strip()
